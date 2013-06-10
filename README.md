@@ -84,4 +84,18 @@ microblog
 
 ## 템플릿 조건문 출력
 
-
+    <html>
+        <head> 
+            {% if title %}
+            <title>{{title}} - microblog</title>                                                                 
+            {% else %}
+            <title>Welcome to microblog</title>                                                                  
+            {% endif %}                                                                                          
+        </head>
+        <body>
+            <h1>Hello, {{user.nickname}}!</h1>
+            {% for post in posts %}
+            <p>{{post.author.nickname}}:<b>{{post.body}}</b></p>
+            {% endfor %}
+        </body>
+    </html>
