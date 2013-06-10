@@ -10,7 +10,7 @@ microblog
 * mac os x 10.8.3
 * python-2.7.2
 
-## 가상 환경 준비
+## 프로젝트 가상 환경
 
     $ mkvirtualenv microblog 
     $ pip install flask
@@ -23,7 +23,7 @@ microblog
     $ pip install flup
     $ pip install sqlalchemy-migrate
 
-## 프로젝트 폴더 준비
+## 프로젝트 디렉토리
 
     $ mkdir ~/FlaskProjects
     $ cd ~/FlaskProjects
