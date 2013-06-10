@@ -63,6 +63,7 @@ microblog
 
 ### 뷰
 
+    $ vim views.py
     # -*- coding:utf8 -*-
     from flask import Flask
     from flask import render_template
@@ -82,8 +83,9 @@ microblog
         app.run(debug=True)    
 
 
-## 템플릿 조건문 출력
+## 템플릿 조건문과 반복문 출력
 
+    $ vim templates/index.html
     <html>
         <head> 
             {% if title %}
@@ -99,3 +101,35 @@ microblog
             {% endfor %}
         </body>
     </html>
+
+
+## 템플릿 상속
+
+### 베이스 템플릿
+
+    $ vim templates/base.html
+    <html>
+      <head>
+        {% if title %}
+        <title>{{title}} - microblog</title>
+        {% else %}
+        <title>microblog</title>
+        {% endif %}
+      </head>
+      <body>
+        <div>Microblog: <a href="/index">Home</a></div>
+        <hr>
+        {% block content %}{% endblock %}
+      </body>
+    </html>
+
+### 파생 템플릿
+
+    $ vim templates/index.html
+    {% extends "base.html" %}
+    {% block content %}
+    <h1>Hello, {{user.nickname}}!</h1>
+    {% for post in posts %}
+    <div><p>{{post.author.nickname}}: <b>{{post.body}}</b></p></div>
+    {% endfor %}
+    {% endblock %}
