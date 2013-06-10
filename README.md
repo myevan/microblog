@@ -82,3 +82,6 @@ microblog
         app.run(debug=True)    
 
 
+## 템플릿 조건문 출력
+
+
