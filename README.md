@@ -46,3 +46,39 @@ microblog
 
 <http://localhost:5000> 접속
 
+## 템플릿 HTML 츌력
+
+### 템플릿
+
+    $ mkdir templates
+    $ vim templates/index.html
+    <html>
+      <head>
+        <title>{{title}} - microblog</title>
+      </head>
+      <body>
+          <h1>Hello, {{user.nickname}}!</h1>
+      </body>
+    </html>
+
+### 뷰
+
+    # -*- coding:utf8 -*-
+    from flask import Flask
+    from flask import render_template
+
+    app = Flask(__name__)
+
+    @app.route('/')
+    def index():
+        return render_template('index.html',
+            title = 'Home',
+            user = {
+                'nickname' : 'Jaru'
+            }
+        )
+
+    if __name__ == '__main__':
+        app.run(debug=True)    
+
+
